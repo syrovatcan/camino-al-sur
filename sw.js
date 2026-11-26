@@ -1,4 +1,4 @@
-const CACHE='camino-v05'; const FILES=['./index.html','./manifest.json','./icon-192.png','./icon-512.png'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
+const CACHE='camino-v06-final';const FILES=['./index.html','./words.js','./manifest.json','./icon-192.png','./icon-512.png','./PHOTO-CREDITS.txt','./photos/36.webp','./photos/74.webp','./photos/85.webp','./photos/86.webp','./photos/594.webp'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES.map(p=>new Request(p,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('camino-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).catch(()=>caches.match('./index.html')));return;}e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});
+self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;let url=new URL(e.request.url);let file=e.request.mode==='navigate'?'./index.html':FILES.find(p=>new URL(p,self.registration.scope).pathname===url.pathname);if(file)e.respondWith(caches.open(CACHE).then(c=>c.match(file)).then(r=>r||fetch(e.request)));});

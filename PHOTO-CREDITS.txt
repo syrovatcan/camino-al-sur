@@ -1,0 +1,5 @@
+photos/36.webp — el café: Rachel Michetti / Pikolo Espresso Bar, CC0. Resized and converted to WebP.
+photos/74.webp — la pared: CC0Textures Bricks25, CC0. Resized and converted to WebP.
+photos/85.webp — la flor: danielbuechele (per scikit-learn README), CC BY 2.0, https://creativecommons.org/licenses/by/2.0/ ; source https://www.flickr.com/photos/vultilion/6056698931/. Resized and converted to WebP.
+photos/86.webp — la hierba: linolafett, Grass 01, CC0, https://www.deviantart.com/linolafett/art/Grass-01-434853879. Resized and converted to WebP.
+photos/594.webp — la grava: CC0Textures Gravel04, CC0. Resized and converted to WebP.
